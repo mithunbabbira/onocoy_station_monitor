@@ -368,3 +368,8 @@ def dashboard():
         logger.error(f"Error generating dashboard UI: {e}")
         return HTMLResponse(content="<h1>Server Error generating dashboard</h1>", status_code=500)
 
+if __name__ == "__main__":
+    import uvicorn
+    # Run the application on all interfaces (0.0.0.0) so it's accessible from other network devices
+    uvicorn.run("main:app", host="0.0.0.0", port=8000)
+
